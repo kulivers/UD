@@ -5,7 +5,6 @@ namespace Repository;
 
 public class RepositoryContext : DbContext
 {
- 
     //Add this later
     // public DbSet<Company> Companies { get; set; }
     // public DbSet<Customer> Customers { get; set; }
@@ -22,5 +21,12 @@ public class RepositoryContext : DbContext
 
     public RepositoryContext(DbContextOptions options) : base(options)
     {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfiguration(new MockCompanyConfiguration());
+        modelBuilder.ApplyConfiguration(new MockEmployeeConfiguration());
     }
 }
