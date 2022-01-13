@@ -7,7 +7,39 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="NLog.Extensions.Logging" Version="1.7.4" />
         <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\LoggerService\LoggerService.csproj" />
+      <ProjectReference Include="..\Entities\Entities.csproj" />
+      <ProjectReference Include="..\Repository\Repository.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="nlog.config" />
+      <None Remove="internal_logs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="bin\Debug\net6.0\logs\2022-01-11_logfile.txt" />
+      <Content Include="bin\Debug\net6.0\logs\2022-01-13_logfile.txt" />
+      <Content Include="bin\Debug\net6.0\logs\logfile.txt" />
+      <Content Remove="internal_logs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="internal_logs\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="internal_logs\**" />
     </ItemGroup>
 
 </Project>
