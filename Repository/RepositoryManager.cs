@@ -8,7 +8,7 @@ public sealed class RepositoryManager : IRepositoryManager
     private readonly Lazy<IMockCompanyRepository> _companyRepository;
     private readonly Lazy<IMockEmployeeRepository> _employeeRepository;
 
-    public RepositoryManager(RepositoryContext repositoryContext)
+    public RepositoryManager(RepositoryContext repositoryContext) // отсюда всем раскидывает
     {
         _repositoryContext = repositoryContext;
         _companyRepository = new Lazy<IMockCompanyRepository>(() => new
