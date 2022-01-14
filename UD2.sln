@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UD.Api", "UD.Api\UD.Api.csproj", "{5AE279D0-B8DF-4174-AFDB-1C612E8D93EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RepositoryContracts", "RepositoryContracts\RepositoryContracts.csproj", "{0F246556-49D6-4A8D-9455-5E0269DEDF20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contracts", "Contracts\Contracts.csproj", "{0F246556-49D6-4A8D-9455-5E0269DEDF20}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerService", "LoggerService\LoggerService.csproj", "{9BBD31D7-D388-4B08-A0C9-89A755A142D5}"
 EndProject
