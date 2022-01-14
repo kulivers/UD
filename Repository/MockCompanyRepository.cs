@@ -1,4 +1,4 @@
-using Contracts;
+using RepositoryContracts;
 using Entities.Models;
 
 namespace Repository;

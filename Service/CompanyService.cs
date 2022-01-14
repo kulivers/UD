@@ -1,4 +1,4 @@
-﻿using Contracts;
+﻿using RepositoryContracts;
 using LoggerService;
 using ServiceContracts;
 

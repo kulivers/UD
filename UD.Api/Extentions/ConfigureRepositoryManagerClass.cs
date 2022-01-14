@@ -1,5 +1,5 @@
-using Contracts;
 using Repository;
+using RepositoryContracts;
 
 namespace UD.Api.Extentions;
 
