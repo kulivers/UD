@@ -1,10 +1,12 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Entities.Models;
 
 public class Company
 {
-    [Required(ErrorMessage = "Company Id is a required field.")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key]
     public int Id { get; set; }
 
     [Required(ErrorMessage = "Company name is a required field.")]

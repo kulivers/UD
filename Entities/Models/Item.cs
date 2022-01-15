@@ -6,7 +6,8 @@ namespace Entities.Models;
 
 public class Item
 {
-    [Required(ErrorMessage = "Company Id is a required field.")]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    [Key]
     public int Id { get; set; }
 
     [Required(ErrorMessage = "Model name is a required field.")]
@@ -20,6 +21,5 @@ public class Item
 
     public Company? Company { get; set; }
 
-    [Precision(6,2)]
-    public decimal Price { get; set; }
+    [Precision(6, 2)] public decimal Price { get; set; }
 }

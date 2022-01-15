@@ -1,3 +1,4 @@
+using Contracts;
 using LoggerService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,6 +23,7 @@ public class WeatherForecastController : ControllerBase
     [HttpGet]
     public IEnumerable<string> Get()
     {
+        
         _logger.LogInfo("Here is info message from our values controller.");
         _logger.LogDebug("Here is debug message from our values controller.");
         _logger.LogWarn("Here is warn message from our values controller.");

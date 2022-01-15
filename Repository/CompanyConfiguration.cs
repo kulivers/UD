@@ -10,10 +10,10 @@ public class CompanyConfiguration : IEntityTypeConfiguration<Company>
     {
         builder.HasData(new Company()
         {
+            Id = 1,
             Address = "manhaten",
             Country = "USA",
             Name = "PEPSI COLA"
         });
-
     }
 }

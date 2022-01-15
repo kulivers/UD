@@ -30,7 +30,7 @@ public class RepositoryContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new MockCompanyConfiguration());
         modelBuilder.ApplyConfiguration(new MockEmployeeConfiguration());
+        modelBuilder.ApplyConfiguration(new CompanyConfiguration());
         // modelBuilder.ApplyConfiguration(new ItemConfiguration());
-        // modelBuilder.ApplyConfiguration(new CompanyConfiguration());
     }
-}
+    }
