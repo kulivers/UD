@@ -12,8 +12,8 @@ using Repository;
 namespace UD.Api.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220114132444_testwithFactory")]
-    partial class testwithFactory
+    [Migration("20220115112015_initMig")]
+    partial class initMig
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace UD.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.ToTable("MockCompanies");
 
                     b.HasData(
                         new
@@ -92,7 +92,7 @@ namespace UD.Api.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Employees");
+                    b.ToTable("MockEmployees2");
 
                     b.HasData(
                         new

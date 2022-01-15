@@ -4,7 +4,7 @@
 
 namespace UD.Api.Migrations
 {
-    public partial class testwithFactory : Migration
+    public partial class itemsAndCompaniesAdded_FixPresision : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

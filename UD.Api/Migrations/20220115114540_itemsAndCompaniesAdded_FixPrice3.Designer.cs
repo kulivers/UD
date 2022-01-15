@@ -12,8 +12,8 @@ using Repository;
 namespace UD.Api.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20220113174016_configsAdded")]
-    partial class configsAdded
+    [Migration("20220115114540_itemsAndCompaniesAdded_FixPrice3")]
+    partial class itemsAndCompaniesAdded_FixPrice3
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,64 @@ namespace UD.Api.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("Entities.Models.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.Property<string>("Country")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(60)
+                        .HasColumnType("nvarchar(60)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Companies");
+                });
+
+            modelBuilder.Entity("Entities.Models.Item", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Model")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<string>("Position")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<decimal>("Price")
+                        .HasPrecision(6, 2)
+                        .HasColumnType("decimal(6,2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("Items");
+                });
 
             modelBuilder.Entity("Entities.Models.MockCompany", b =>
                 {
@@ -46,7 +104,7 @@ namespace UD.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Companies");
+                    b.ToTable("MockCompanies");
 
                     b.HasData(
                         new
@@ -92,7 +150,7 @@ namespace UD.Api.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("Employees");
+                    b.ToTable("MockEmployees");
 
                     b.HasData(
                         new
@@ -121,6 +179,15 @@ namespace UD.Api.Migrations
                         });
                 });
 
+            modelBuilder.Entity("Entities.Models.Item", b =>
+                {
+                    b.HasOne("Entities.Models.Company", "Company")
+                        .WithMany("Items")
+                        .HasForeignKey("CompanyId");
+
+                    b.Navigation("Company");
+                });
+
             modelBuilder.Entity("Entities.Models.MockEmployee", b =>
                 {
                     b.HasOne("Entities.Models.MockCompany", "Company")
@@ -130,6 +197,11 @@ namespace UD.Api.Migrations
                         .IsRequired();
 
                     b.Navigation("Company");
+                });
+
+            modelBuilder.Entity("Entities.Models.Company", b =>
+                {
+                    b.Navigation("Items");
                 });
 
             modelBuilder.Entity("Entities.Models.MockCompany", b =>

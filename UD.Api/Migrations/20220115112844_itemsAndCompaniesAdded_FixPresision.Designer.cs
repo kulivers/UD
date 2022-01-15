@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Repository;
 
@@ -11,9 +12,10 @@ using Repository;
 namespace UD.Api.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    partial class RepositoryContextModelSnapshot : ModelSnapshot
+    [Migration("20220115112844_itemsAndCompaniesAdded_FixPresision")]
+    partial class itemsAndCompaniesAdded_FixPresision
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -70,8 +72,7 @@ namespace UD.Api.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<decimal>("Price")
-                        .HasPrecision(6, 2)
-                        .HasColumnType("decimal(6,2)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
 
