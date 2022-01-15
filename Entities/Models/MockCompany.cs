@@ -16,5 +16,5 @@ public class MockCompany
     public string? Address { get; set; }
 
     public string? Country { get; set; }
-    public ICollection<MockEmployee>? Employees { get; set; }
+    public ICollection<MockEmployee>? MockEmployees { get; set; }
 }
