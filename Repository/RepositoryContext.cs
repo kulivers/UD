@@ -12,8 +12,8 @@ public class RepositoryContext : DbContext
     // public DbSet<Order> Orders { get; set; }
 
 
-    public DbSet<MockCompany>? MockCompanies { get; set; }
-    public DbSet<MockEmployee>? MockEmployees { get; set; }
+    public DbSet<MockCompany>? Companies { get; set; }
+    public DbSet<MockEmployee>? Employees { get; set; }
 
     public RepositoryContext()
     {

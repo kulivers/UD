@@ -44,7 +44,7 @@ namespace UD.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MockCompanies");
+                    b.ToTable("Companies");
 
                     b.HasData(
                         new
@@ -76,9 +76,6 @@ namespace UD.Api.Migrations
                     b.Property<Guid>("CompanyId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("MockCompanyId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -91,9 +88,9 @@ namespace UD.Api.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MockCompanyId");
+                    b.HasIndex("CompanyId");
 
-                    b.ToTable("MockEmployees");
+                    b.ToTable("Employees");
 
                     b.HasData(
                         new
@@ -124,16 +121,18 @@ namespace UD.Api.Migrations
 
             modelBuilder.Entity("Entities.Models.MockEmployee", b =>
                 {
-                    b.HasOne("Entities.Models.MockCompany", "MockCompany")
-                        .WithMany("MockEmployees")
-                        .HasForeignKey("MockCompanyId");
+                    b.HasOne("Entities.Models.MockCompany", "Company")
+                        .WithMany("Employees")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("MockCompany");
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("Entities.Models.MockCompany", b =>
                 {
-                    b.Navigation("MockEmployees");
+                    b.Navigation("Employees");
                 });
 #pragma warning restore 612, 618
         }

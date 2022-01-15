@@ -19,5 +19,5 @@ public class MockEmployee
     public string? Position { get; set; }
 
     [ForeignKey(nameof(Company))] public Guid CompanyId { get; set; }
-    public MockCompany? MockCompany { get; set; }
+    public MockCompany? Company { get; set; }
 }
