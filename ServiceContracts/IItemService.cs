@@ -1,6 +1,6 @@
 namespace ServiceContracts;
 
-public interface ICompanyService
+public interface IItemService
 {
     
 }

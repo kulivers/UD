@@ -2,7 +2,7 @@ namespace Contracts;
 
 public interface IRepositoryManager
 {
-    IMockCompanyRepository Company { get; }
-    IMockEmployeeRepository Employee { get; }
+    IMockCompanyRepository MockCompany { get; }
+    IMockEmployeeRepository MockEmployee { get; }
     void Save();
 }

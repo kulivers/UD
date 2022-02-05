@@ -14,16 +14,17 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILoggerManager _logger;
+    private readonly IRepositoryManager _repositoryManager;
 
-    public WeatherForecastController(ILoggerManager logger)
+    public WeatherForecastController(ILoggerManager logger, IRepositoryManager repositoryManager)
     {
         _logger = logger;
+        _repositoryManager = repositoryManager;
     }
 
     [HttpGet]
     public IEnumerable<string> Get()
     {
-        
         _logger.LogInfo("Here is info message from our values controller.");
         _logger.LogDebug("Here is debug message from our values controller.");
         _logger.LogWarn("Here is warn message from our values controller.");

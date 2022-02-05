@@ -1,6 +1,6 @@
 namespace ServiceContracts;
 
-public interface IEmployeeService
+public class IMockCompanyService
 {
     
 }

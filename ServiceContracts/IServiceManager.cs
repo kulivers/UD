@@ -2,6 +2,8 @@ namespace ServiceContracts;
 
 public interface IServiceManager
 {
+    IMockCompanyService MockCompanyService { get; }
+    IMockEmployeeService MockEmployeeService { get; }
     ICompanyService CompanyService { get; }
-    IEmployeeService EmployeeService { get; }
+    IItemService ItemService { get; }
 }
