@@ -14,8 +14,6 @@ public class RepositoryContext : DbContext
 
     public DbSet<MockCompany>? MockCompanies { get; set; }
     public DbSet<MockEmployee>? MockEmployees { get; set; }
-    public DbSet<Item>? Items { get; set; }
-    public DbSet<Company>? Companies { get; set; }
 
     public RepositoryContext()
     {
@@ -30,7 +28,5 @@ public class RepositoryContext : DbContext
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfiguration(new MockCompanyConfiguration());
         modelBuilder.ApplyConfiguration(new MockEmployeeConfiguration());
-        modelBuilder.ApplyConfiguration(new CompanyConfiguration());
-        // modelBuilder.ApplyConfiguration(new ItemConfiguration());
     }
     }
